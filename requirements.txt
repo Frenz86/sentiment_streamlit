@@ -1,6 +1,7 @@
 streamlit==0.49.0
-pickle==5 0.0.11
+pickle5==0.0.11
 sklearn
 pandas
 numpy
 tensorflow
+joblib==0.14.1

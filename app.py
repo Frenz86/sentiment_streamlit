@@ -1,13 +1,17 @@
 import streamlit as st
-import pickle5 as pickle
+import joblib
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
+
+handle= open('tokenizer.pickle', 'rb')
+tokenizer = joblib.load(handle)
+
 def predict(message):
     model=load_model('movie_sent.h5')
-    with open('tokenizer.pickle', 'rb') as handle:
-        tokenizer = pickle.load(handle)
+    handle= open('tokenizer.pickle', 'rb')
+    tokenizer = joblib.load(handle)
     x_1 = tokenizer.texts_to_sequences([message])
     x_1 = pad_sequences(x_1, maxlen=500)
     predictions = model.predict(x_1)[0][0]
