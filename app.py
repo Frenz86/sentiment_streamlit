@@ -1,8 +1,9 @@
 import streamlit as st
-import pickle
+import pickle5 as pickle
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+
 def predict(message):
     model=load_model('movie_sent.h5')
     with open('tokenizer.pickle', 'rb') as handle:
